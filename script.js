@@ -5,6 +5,7 @@
   const systemHint = document.getElementById("systemHint");
   const type2Field = document.getElementById("type2Field");
   const type2Buttons = document.getElementById("type2Buttons");
+  const autoTypeLabel = document.getElementById("autoTypeLabel");
   const result = document.getElementById("result");
 
   const monthSystems = {
@@ -28,6 +29,7 @@
     systemHint.textContent = "";
     type2Buttons.innerHTML = "";
     type2Field.classList.add("hidden");
+    autoTypeLabel.classList.add("hidden");
     result.classList.add("hidden");
   }
 
@@ -56,6 +58,7 @@
   function renderTypeButtons() {
     const rows = rowsForSelection();
     type2Buttons.innerHTML = "";
+    autoTypeLabel.classList.add("hidden");
     result.classList.add("hidden");
 
     if (!rows.length) {
@@ -66,6 +69,8 @@
     // 試験種類が1種類だけの場合はボタンを省略し、そのまま結果を表示する。
     if (rows.length === 1) {
       type2Field.classList.add("hidden");
+      autoTypeLabel.textContent = rows[0].type2 || "一般細菌";
+      autoTypeLabel.classList.remove("hidden");
       showResult(rows[0].type2);
       return;
     }
@@ -83,6 +88,7 @@
       type2Buttons.appendChild(button);
     });
 
+    autoTypeLabel.classList.add("hidden");
     type2Field.classList.remove("hidden");
   }
 

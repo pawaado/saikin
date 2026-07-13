@@ -64,3 +64,20 @@ select:focus { outline:3px solid rgba(55,138,146,.2); border-color:#378a92; }
   .card.wide { grid-column:auto; }
   .system-notes p { white-space:normal; }
 }
+
+.auto-type-label {
+  margin: 18px 0 -2px;
+  padding: 14px 20px;
+  color: #172026;
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+.notes {
+  margin-top: 20px;
+  padding: 8px 4px;
+}
+.notes p {
+  margin: 0;
+  color: #45545a;
+  font-size: .92rem;
+}

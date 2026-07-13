@@ -11,23 +11,39 @@
     <header class="hero">
       <p class="eyebrow">BACTERIOLOGICAL TEST TOOL</p>
       <h1>細菌試験ツール</h1>
-      <p>試験の種類を選択すると、対象地点・培地量・試薬重量を表示します。</p>
+      <p>試験の種類を選択すると、対象地点・シャーレ数・培地量・試薬重量を表示します。</p>
     </header>
 
     <section class="panel controls" aria-label="試験条件">
       <label>
-        <span>試験の種類（1）</span>
-        <select id="type1">
+        <span>試験の種類</span>
+        <select id="testGroup">
           <option value="">選択してください</option>
+          <option value="ルーチン">ルーチン</option>
+          <option value="定期試験A">定期試験A</option>
+          <option value="定期試験B">定期試験B</option>
+          <option value="定期試験AB（企業団系統）">定期試験AB（企業団系統）</option>
         </select>
       </label>
 
-      <label>
-        <span>試験の種類（2）</span>
-        <select id="type2" disabled>
-          <option value="">先に種類（1）を選択</option>
+      <label id="monthField" class="hidden">
+        <span>試験時期</span>
+        <select id="month">
+          <option value="">選択してください</option>
+          <option value="4">4月</option><option value="5">5月</option>
+          <option value="6">6月</option><option value="7">7月</option>
+          <option value="8">8月</option><option value="9">9月</option>
+          <option value="10">10月</option><option value="11">11月</option>
+          <option value="12">12月</option><option value="1">1月</option>
+          <option value="2">2月</option><option value="3">3月</option>
         </select>
+        <p id="systemHint" class="system-hint"></p>
       </label>
+
+      <div id="type2Field" class="choice-field hidden">
+        <span>試験の種類（2）</span>
+        <div id="type2Buttons" class="choice-buttons"></div>
+      </div>
     </section>
 
     <section id="result" class="panel result hidden" aria-live="polite">
@@ -36,23 +52,19 @@
           <h2>定期対象</h2>
           <p id="periodic"></p>
         </article>
-
         <article class="card wide">
           <h2>ルーチン対象</h2>
           <p class="sub">定期対象以外が該当</p>
           <p id="routine"></p>
         </article>
-
         <article class="card">
           <h2>シャーレ数</h2>
           <p id="dishes" class="value"></p>
         </article>
-
         <article class="card">
           <h2>培地量</h2>
           <p id="medium" class="value"></p>
         </article>
-
         <article class="card">
           <h2>試薬重量</h2>
           <p id="reagent" class="value"></p>
@@ -63,7 +75,11 @@
     <section class="notes">
       <h2>【注記】</h2>
       <p>・配水場出口水は含まれていません。</p>
-      <p>・泉系統：5、8、11、2月　片山系統：4、7、10、1月　企業団系統：6、9、12、3月</p>
+      <div class="system-notes">
+        <p>・泉系統　　：5、8、11、2月</p>
+        <p>・片山系統　：4、7、10、1月</p>
+        <p>・企業団系統：6、9、12、3月</p>
+      </div>
     </section>
   </main>
 

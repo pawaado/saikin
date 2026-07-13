@@ -15,7 +15,15 @@
 
   const unique = values => [...new Set(values)];
 
-  function clearAfterGroup() {
+  // 旧版data.jsが残っていても動くように項目名を吸収する。
+  const sourceData = Array.isArray(window.TEST_DATA) ? window.TEST_DATA : [];
+  const data = sourceData.map(row => ({
+    ...row,
+    group: row.group ?? row.type1 ?? "",
+    type2: row.type2 ?? ""
+  }));
+
+  function resetFollowingFields() {
     monthSelect.value = "";
     systemHint.textContent = "";
     type2Buttons.innerHTML = "";
@@ -23,29 +31,29 @@
     result.classList.add("hidden");
   }
 
+  function needsMonth(group) {
+    return group !== "" && group !== "ルーチン" && group !== "定期試験AB（企業団系統）";
+  }
+
   function rowsForSelection() {
     const group = groupSelect.value;
     if (!group) return [];
 
-    if (group === "ルーチン" || group === "定期試験AB（企業団系統）") {
-      return window.TEST_DATA.filter(row => row.group === group);
+    if (!needsMonth(group)) {
+      return data.filter(row => row.group === group);
     }
 
     const system = monthSystems[monthSelect.value];
     if (!system) return [];
 
     if (group === "定期試験B" && (system === "泉系統" || system === "片山系統")) {
-      return window.TEST_DATA.filter(row =>
-        row.group === group && row.system === "泉・片山系統"
-      );
+      return data.filter(row => row.group === group && row.system === "泉・片山系統");
     }
 
-    return window.TEST_DATA.filter(row =>
-      row.group === group && row.system === system
-    );
+    return data.filter(row => row.group === group && row.system === system);
   }
 
-  function showType2Buttons() {
+  function renderTypeButtons() {
     const rows = rowsForSelection();
     type2Buttons.innerHTML = "";
     result.classList.add("hidden");
@@ -55,13 +63,13 @@
       return;
     }
 
-    unique(rows.map(row => row.type2)).forEach(type2 => {
+    unique(rows.map(row => row.type2).filter(Boolean)).forEach(type2 => {
       const button = document.createElement("button");
       button.type = "button";
       button.className = "choice-button";
       button.textContent = type2;
       button.addEventListener("click", () => {
-        document.querySelectorAll(".choice-button").forEach(b => b.classList.remove("selected"));
+        type2Buttons.querySelectorAll(".choice-button").forEach(b => b.classList.remove("selected"));
         button.classList.add("selected");
         showResult(type2);
       });
@@ -87,18 +95,22 @@
   }
 
   groupSelect.addEventListener("change", () => {
-    clearAfterGroup();
-    const needsMonth = groupSelect.value === "定期試験A" || groupSelect.value === "定期試験B";
-    monthField.classList.toggle("hidden", !needsMonth);
+    resetFollowingFields();
+    const monthRequired = needsMonth(groupSelect.value);
+    monthField.classList.toggle("hidden", !monthRequired);
 
-    if (groupSelect.value && !needsMonth) {
-      showType2Buttons();
+    // ルーチンと定期試験ABは、選択直後に試験種類ボタンを表示。
+    if (groupSelect.value && !monthRequired) {
+      renderTypeButtons();
     }
   });
 
   monthSelect.addEventListener("change", () => {
     const system = monthSystems[monthSelect.value];
     systemHint.textContent = system ? `対象系統：${system}` : "";
-    showType2Buttons();
+
+    // 定期試験A・Bは、試験時期を選んだ後に試験種類ボタンを表示。
+    if (system) renderTypeButtons();
+    else type2Field.classList.add("hidden");
   });
 })();

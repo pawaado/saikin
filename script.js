@@ -63,6 +63,13 @@
       return;
     }
 
+    // 試験種類が1種類だけの場合はボタンを省略し、そのまま結果を表示する。
+    if (rows.length === 1) {
+      type2Field.classList.add("hidden");
+      showResult(rows[0].type2);
+      return;
+    }
+
     unique(rows.map(row => row.type2).filter(Boolean)).forEach(type2 => {
       const button = document.createElement("button");
       button.type = "button";
@@ -109,7 +116,7 @@
     const system = monthSystems[monthSelect.value];
     systemHint.textContent = system ? `対象系統：${system}` : "";
 
-    // 定期試験A・Bは、試験時期を選んだ後に試験種類ボタンを表示。
+    // 定期試験A・Bは、試験の時期を選んだ後に必要な選択肢または結果を表示。
     if (system) renderTypeButtons();
     else type2Field.classList.add("hidden");
   });

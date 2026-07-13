@@ -4,19 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>細菌試験ツール</title>
-  <link rel="stylesheet" href="style.css?v=4">
+  <link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
   <main class="app">
     <header class="hero">
       <p class="eyebrow">BACTERIOLOGICAL TEST TOOL</p>
       <h1>細菌試験ツール</h1>
-      <p>試験の種類を選択すると、対象地点・シャーレ数・培地量・試薬重量を表示します。</p>
     </header>
 
     <section class="panel controls" aria-label="試験条件">
       <label>
-        <span>試験の種類</span>
+        <span>試験の種類（1）</span>
         <select id="testGroup">
           <option value="">選択してください</option>
           <option value="ルーチン">ルーチン</option>
@@ -27,7 +26,7 @@
       </label>
 
       <label id="monthField" class="hidden">
-        <span>試験時期</span>
+        <span>試験の時期</span>
         <select id="month">
           <option value="">選択してください</option>
           <option value="4">4月</option><option value="5">5月</option>
@@ -75,15 +74,10 @@
     <section class="notes">
       <h2>【注記】</h2>
       <p>・配水場出口水は含まれていません。</p>
-      <div class="system-notes">
-        <p>・泉系統　　：5、8、11、2月</p>
-        <p>・片山系統　：4、7、10、1月</p>
-        <p>・企業団系統：6、9、12、3月</p>
-      </div>
     </section>
   </main>
 
-  <script src="data.js?v=4"></script>
-  <script src="script.js?v=4"></script>
+  <script src="data.js?v=5"></script>
+  <script src="script.js?v=5"></script>
 </body>
 </html>

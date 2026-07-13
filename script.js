@@ -7,6 +7,10 @@
   const type2Buttons = document.getElementById("type2Buttons");
   const autoTypeLabel = document.getElementById("autoTypeLabel");
   const result = document.getElementById("result");
+  const periodicCard = document.getElementById("periodicCard");
+  const routineCard = document.getElementById("routineCard");
+  const routineTitle = document.getElementById("routineTitle");
+  const routineSub = document.getElementById("routineSub");
 
   const monthSystems = {
     "5":"泉系統", "8":"泉系統", "11":"泉系統", "2":"泉系統",
@@ -30,6 +34,10 @@
     type2Buttons.innerHTML = "";
     type2Field.classList.add("hidden");
     autoTypeLabel.classList.add("hidden");
+    periodicCard.classList.remove("hidden");
+    routineCard.classList.remove("hidden");
+    routineTitle.textContent = "ルーチン対象";
+    routineSub.classList.remove("hidden");
     result.classList.add("hidden");
   }
 
@@ -98,6 +106,13 @@
       result.classList.add("hidden");
       return;
     }
+
+    const isRoutine = groupSelect.value === "ルーチン";
+
+    periodicCard.classList.toggle("hidden", isRoutine);
+    routineCard.classList.remove("hidden");
+    routineTitle.textContent = isRoutine ? "対象" : "ルーチン対象";
+    routineSub.classList.toggle("hidden", isRoutine);
 
     document.getElementById("periodic").textContent = row.periodic;
     document.getElementById("routine").textContent = row.routine;

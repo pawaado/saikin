@@ -47,6 +47,7 @@ select:focus { outline:3px solid rgba(55,138,146,.2); border-color:#378a92; }
 .card.wide { grid-column:span 3; }
 .card h2 { margin:0 0 8px; color:#2f6970; font-size:.95rem; }
 .card p { margin:0; overflow-wrap:anywhere; }
+#periodic,#routine{font-size:clamp(1.18rem,4vw,1.8rem);font-weight:900;line-height:1.35;}
 .card .sub { margin:-5px 0 7px; color:#728087; font-size:.8rem; }
 .value { font-size:clamp(1.18rem,4vw,1.8rem); font-weight:900; line-height:1.35; }
 .notes { margin-top:20px; padding:8px 4px; color:#45545a; font-size:.92rem; }

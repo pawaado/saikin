@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>細菌試験ツール</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <p class="eyebrow">BACTERIOLOGICAL TEST TOOL</p>
+      <h1>細菌試験ツール</h1>
+      <p>試験の種類を選択すると、対象地点・培地量・試薬重量を表示します。</p>
+    </header>
+
+    <section class="panel controls" aria-label="試験条件">
+      <label>
+        <span>試験の種類（1）</span>
+        <select id="type1">
+          <option value="">選択してください</option>
+        </select>
+      </label>
+
+      <label>
+        <span>試験の種類（2）</span>
+        <select id="type2" disabled>
+          <option value="">先に種類（1）を選択</option>
+        </select>
+      </label>
+    </section>
+
+    <section id="result" class="panel result hidden" aria-live="polite">
+      <div class="result-grid">
+        <article class="card wide">
+          <h2>定期対象</h2>
+          <p id="periodic"></p>
+        </article>
+
+        <article class="card wide">
+          <h2>ルーチン対象</h2>
+          <p class="sub">定期対象以外が該当</p>
+          <p id="routine"></p>
+        </article>
+
+        <article class="card">
+          <h2>シャーレ数</h2>
+          <p id="dishes" class="value"></p>
+        </article>
+
+        <article class="card">
+          <h2>培地量</h2>
+          <p id="medium" class="value"></p>
+        </article>
+
+        <article class="card">
+          <h2>試薬重量</h2>
+          <p id="reagent" class="value"></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="notes">
+      <h2>【注記】</h2>
+      <p>・配水場出口水は含まれていません。</p>
+      <p>・泉系統：5、8、11、2月　片山系統：4、7、10、1月　企業団系統：6、9、12、3月</p>
+    </section>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

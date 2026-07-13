@@ -1,0 +1,151 @@
+:root {
+  font-family: "Yu Gothic", "Meiryo", system-ui, sans-serif;
+  color: #172026;
+  background: #eef4f5;
+  line-height: 1.6;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(120, 190, 196, .22), transparent 32rem),
+    linear-gradient(180deg, #f8fbfb 0%, #edf4f4 100%);
+}
+
+.app {
+  width: min(920px, calc(100% - 28px));
+  margin: 0 auto;
+  padding: 36px 0 48px;
+}
+
+.hero {
+  margin-bottom: 22px;
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  color: #34737a;
+  font-size: .76rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  line-height: 1.15;
+}
+
+.hero > p:last-child {
+  margin: 10px 0 0;
+  color: #54636a;
+}
+
+.panel {
+  background: rgba(255,255,255,.9);
+  border: 1px solid #d5e2e4;
+  border-radius: 18px;
+  box-shadow: 0 12px 32px rgba(30, 72, 77, .08);
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  padding: 22px;
+}
+
+label span {
+  display: block;
+  margin-bottom: 7px;
+  font-weight: 800;
+}
+
+select {
+  width: 100%;
+  padding: 13px 42px 13px 14px;
+  border: 1px solid #b9cacc;
+  border-radius: 10px;
+  background: #fff;
+  color: #172026;
+  font: inherit;
+}
+
+select:focus {
+  outline: 3px solid rgba(55, 138, 146, .2);
+  border-color: #378a92;
+}
+
+.result {
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.card {
+  min-width: 0;
+  padding: 17px;
+  border: 1px solid #dbe6e7;
+  border-radius: 14px;
+  background: #fbfdfd;
+}
+
+.card.wide {
+  grid-column: span 3;
+}
+
+.card h2 {
+  margin: 0 0 8px;
+  color: #2f6970;
+  font-size: .95rem;
+}
+
+.card p {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.card .sub {
+  margin: -5px 0 7px;
+  color: #728087;
+  font-size: .8rem;
+}
+
+.value {
+  font-size: clamp(1.25rem, 4vw, 1.8rem);
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+.notes {
+  margin-top: 20px;
+  padding: 8px 4px;
+  color: #45545a;
+  font-size: .92rem;
+}
+
+.notes h2 {
+  margin: 0 0 6px;
+  color: #172026;
+  font-size: 1rem;
+}
+
+.notes p { margin: 4px 0; }
+
+.hidden { display: none; }
+
+@media (max-width: 680px) {
+  .app { padding-top: 24px; }
+  .controls { grid-template-columns: 1fr; padding: 17px; }
+  .result { padding: 14px; }
+  .result-grid { grid-template-columns: 1fr; }
+  .card.wide { grid-column: auto; }
+}

@@ -51,9 +51,8 @@ select:focus { outline:3px solid rgba(55,138,146,.2); border-color:#378a92; }
   font-size:clamp(1.12rem,3.7vw,1.72rem);
   font-weight:900;
   line-height:1.45;
-  word-break:keep-all;
+  word-break:normal;
   overflow-wrap:normal;
-  line-break:strict;
 }
 .card .sub { margin:-5px 0 7px; color:#728087; font-size:.8rem; }
 .value { font-size:clamp(1.18rem,4vw,1.8rem); font-weight:900; line-height:1.35; }

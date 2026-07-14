@@ -20,6 +20,10 @@
 
   const unique = values => [...new Set(values)];
 
+  function formatTargetText(value) {
+    return String(value).replace(/、/g, "、\u200B");
+  }
+
   // 旧版data.jsが残っていても動くように項目名を吸収する。
   const sourceData = Array.isArray(window.TEST_DATA) ? window.TEST_DATA : [];
   const data = sourceData.map(row => ({
@@ -114,8 +118,8 @@
     routineTitle.textContent = isRoutine ? "対象" : "ルーチン対象";
     routineSub.classList.toggle("hidden", isRoutine);
 
-    document.getElementById("periodic").textContent = row.periodic;
-    document.getElementById("routine").textContent = row.routine;
+    document.getElementById("periodic").textContent = formatTargetText(row.periodic);
+    document.getElementById("routine").textContent = formatTargetText(row.routine);
     document.getElementById("dishes").textContent = row.dishes;
     document.getElementById("medium").textContent = row.medium;
     document.getElementById("reagent").textContent = row.reagent;

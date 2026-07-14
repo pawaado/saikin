@@ -34,7 +34,7 @@ window.TEST_DATA = [
     "system": "泉系統",
     "type2": "従属栄養細菌",
     "periodic": "4（100倍）、7、31",
-    "routine": "オゾン、GAC、6、11、15",
+    "routine": "オゾン、GAC（10倍）、6、11、15",
     "dishes": "28",
     "medium": "420＋30（予備）＝450 mL",
     "reagent": "8.19 g"
@@ -54,7 +54,7 @@ window.TEST_DATA = [
     "system": "片山系統",
     "type2": "従属栄養細菌",
     "periodic": "11、14、15、32、33",
-    "routine": "4（100倍）、オゾン、GAC、6、7",
+    "routine": "4（100倍）、オゾン、GAC（10倍）、6、7",
     "dishes": "34",
     "medium": "510＋40（予備）＝550 mL",
     "reagent": "10.01 g"
@@ -94,7 +94,7 @@ window.TEST_DATA = [
     "system": "企業団系統",
     "type2": "従属栄養細菌",
     "periodic": "34、35、36、37、38、39、41",
-    "routine": "4（100倍）、オゾン、GAC、6、7、11、15",
+    "routine": "4（100倍）、オゾン、GAC（10倍）、6、7、11、15",
     "dishes": "46",
     "medium": "690＋60（予備）＝750 mL",
     "reagent": "13.65 g"
@@ -114,7 +114,7 @@ window.TEST_DATA = [
     "system": null,
     "type2": "従属栄養細菌",
     "periodic": "34、35、36、37、38、39、41",
-    "routine": "4（100倍）、オゾン、GAC、6、7、11、15",
+    "routine": "4（100倍）、オゾン、GAC（10倍）、6、7、11、15",
     "dishes": "46",
     "medium": "690＋60（予備）＝750 mL",
     "reagent": "13.65 g"
